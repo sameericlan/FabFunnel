@@ -2,11 +2,9 @@ package stepDefinitions;
 
 
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -17,12 +15,14 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import objectRepo.LoginPage;
 import utilities.PropertyFileUtilities;
 import utilities.TryCatchFab;
+
 public class TestSteps {
+
 	WebDriver driver;
 	LoginPage lp;
 	PropertyFileUtilities prop;
 	TryCatchFab tcf=new TryCatchFab();
-	
+
 	@Before
 	public void setup() {
 		System.out.println("This is before method");
@@ -47,17 +47,17 @@ public class TestSteps {
 	@Given("login page is open")
 	public void login_page_is_open() {
 		//	lp=new LoginPage(driver);
-		//	String loginText = lp.verifyLoginPage().getText();
+
 		//	Assert.assertEquals(loginText, "Welcome to FabFunnel");
 		//	System.out.println("LoginPage verification successful");
-			tcf.execute(this:: testCase1);
-//		executor.execute(new Runnable() {
-//
-//			@Override
-//			public void run() {
-//				testCase1();				
-//			}
-//		});
+		tcf.execute(this:: testCase1);
+		//		executor.execute(new Runnable() {
+		//
+		//			@Override
+		//			public void run() {
+		//				testCase1();				
+		//			}
+		//		});
 	}
 
 	@When("user enters username and password")
@@ -93,6 +93,58 @@ public class TestSteps {
 		Assert.assertEquals(lp.verifyHomePage(), "Dashboard");
 		System.out.println("User has successfully entered the Home Page");
 	}
+	
+	
+	@Given("browser is open and user is on login page")
+	public void browser_is_open_and_user_is_on_login_page() {
+		tcf.execute(this:: testCase1);
+
+		
+	}
+	
+	@When("user enters wrong username and password")
+	public void user_enters_wrong_username_and_password() {
+		
+		String incorrectUSERNAME=null;
+		try {
+			incorrectUSERNAME = prop.readDataFromPropertFile( "incorrect_username");
+			System.out.println(incorrectUSERNAME);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		String incorrectPASSWORD=null;
+		try {
+			incorrectPASSWORD = prop.readDataFromPropertFile( "incorrect_password");
+			System.out.println(incorrectPASSWORD);
+
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		try {
+			lp.loginToApp(incorrectUSERNAME, incorrectPASSWORD);}
+		catch(Exception e) {}
+		
+	}
+	
+	@And("user clicks on the login button")
+	public void user_clicks_on_login_button() {
+		
+		
+	}
+	
+	@Then("user shouldnt be logged in and an error messaage should be displayed")
+	public void user_shouldnt_be_logged_in_and_an_error_messaage_should_be_displayed() {
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	@After
 	public void exit() {

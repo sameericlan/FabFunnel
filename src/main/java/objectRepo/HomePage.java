@@ -1,12 +1,110 @@
 package objectRepo;
 
+import java.util.List;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
-	
+	List<Object> clickList;
+
 	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
 	WebElement crewControlBtn;
+
+	public List<Object> getClickList() {
+		return clickList;
+	}
+
+	public WebElement getCrewControlBtn() {
+		return crewControlBtn;
+	}
+
+	public WebElement getIntegrationsBtn() {
+		return integrationsBtn;
+	}
+
+	public WebElement getFunnelEngineBtn() {
+		return funnelEngineBtn;
+	}
+
+	public WebElement getFmsBtn() {
+		return fmsBtn;
+	}
+
+	public WebElement getToolsBtn() {
+		return toolsBtn;
+	}
+
+	public WebElement getLaunchBtn() {
+		return launchBtn;
+	}
+
+	public WebElement getCreativeLibraryBtn() {
+		return creativeLibraryBtn;
+	}
+
+	public WebElement getReportsBtn() {
+		return reportsBtn;
+	}
+
+	public WebElement getHelpSupportBtn() {
+		return helpSupportBtn;
+	}
+
+	public WebElement getAgenciesBtn() {
+		return agenciesBtn;
+	}
+
+	public WebElement getMembersBtn() {
+		return membersBtn;
+	}
+
+	public WebElement getTeamsBtn() {
+		return teamsBtn;
+	}
+
+	public WebElement getRolesPermissionBtn() {
+		return rolesPermissionBtn;
+	}
+
+	public WebElement getOthersBtn() {
+		return othersBtn;
+	}
+
+	public WebElement getFunnelTypeBtn() {
+		return funnelTypeBtn;
+	}
+
+	public WebElement getClientConfigBtn() {
+		return clientConfigBtn;
+	}
+
+	public WebElement getAsstesBtn() {
+		return asstesBtn;
+	}
+
+	public WebElement getDmsBtn() {
+		return dmsBtn;
+	}
+
+	public WebElement getS2SBtn() {
+		return s2SBtn;
+	}
+
+	public WebElement getBusinessManagerBtn() {
+		return businessManagerBtn;
+	}
+
+	public WebElement getLaunchesBtn() {
+		return launchesBtn;
+	}
+
+	public WebElement getTargetTemplatesBtn() {
+		return targetTemplatesBtn;
+	}
+
 
 	@FindBy(xpath="//span[contains(text(),'Integrations')]")
 	WebElement integrationsBtn;
@@ -16,89 +114,85 @@ public class HomePage {
 
 	@FindBy(xpath="//a[text()='FMS']")
 	WebElement fmsBtn;
-	
+
 	@FindBy(xpath="//span[contains(text(),'Tools')]")
 	WebElement toolsBtn;
-	
+
 	@FindBy(xpath="//span[contains(text(),'Launch')]")
 	WebElement launchBtn;
-	
+
 	@FindBy(xpath="//a[text()='Creative Library']")
 	WebElement creativeLibraryBtn;
-	
+
 	@FindBy(xpath="//span[contains(text(),'Reports')]")
 	WebElement reportsBtn;
-	
+
 	@FindBy(xpath="//a[text()='Help & Support']")
 	WebElement helpSupportBtn;
-	
+
 	@FindBy(xpath="//a[text()='Agencies']")
 	WebElement agenciesBtn;
-	
+
 	@FindBy(xpath="//a[text()='Members']")
 	WebElement membersBtn;
-	
+
 	@FindBy(xpath="//a[text()='Teams']")
 	WebElement teamsBtn;
-	
+
 	@FindBy(xpath="//a[text()='Roles & Permissions']")
 	WebElement rolesPermissionBtn;
-	
+
 	@FindBy(xpath="//a[text()='Others']")
 	WebElement othersBtn;
-	
+
 	@FindBy(xpath="//a[text()='Funnel type']")
 	WebElement funnelTypeBtn;
-	
+
 	@FindBy(xpath="//a[text()='Client Configuration']")
 	WebElement clientConfigBtn;
-	
+
 	@FindBy(xpath="//a[text()='Assets']")
 	WebElement asstesBtn;
-	
+
 	@FindBy(xpath="//a[text()='DMS']")
 	WebElement dmsBtn;
-	
+
 	@FindBy(xpath="//a[text()='S2S']")
 	WebElement s2SBtn;
-	
+
 	@FindBy(xpath="//a[text()='Business Manager']")
 	WebElement businessManagerBtn;
-	
+
 	@FindBy(xpath="//a[text()='Launches']")
 	WebElement launchesBtn;
-	
+
 	@FindBy(xpath="//a[text()='Targeting Templates']")
 	WebElement targetTemplatesBtn;
-	
-//	@FindBy(xpath="//a[text()='Help & Support']")
-//	WebElement helpSupportBtn;
-//	
-//	@FindBy(xpath="//a[text()='Agencies']")
-//	WebElement agenciesBtn;
-//	
-//	@FindBy(xpath="//a[text()='Members']")
-//	WebElement membersBtn;
-//	
-//	@FindBy(xpath="//a[text()='Teams']")
-//	WebElement teamsBtn;
-//	
-//	@FindBy(xpath="//a[text()='Roles & Permissions']")
-//	WebElement rolesPermissionBtn;
-//	
-//	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
-//	WebElement crewControlBtn;
-//	
-//	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
-//	WebElement crewControlBtn;
-//	
-//	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
-//	WebElement crewControlBtn;
-	
-	////span[contains(text(),'Crew Control')]
 
-	
-	
+	//	@FindBy(xpath="//a[text()='Help & Support']")
+	//	WebElement helpSupportBtn;
+	//	
+	//	@FindBy(xpath="//a[text()='Agencies']")
+	//	WebElement agenciesBtn;
+	//	
+	//	@FindBy(xpath="//a[text()='Members']")
+	//	WebElement membersBtn;
+	//	
+	//	@FindBy(xpath="//a[text()='Teams']")
+	//	WebElement teamsBtn;
+	//	
+	//	@FindBy(xpath="//a[text()='Roles & Permissions']")
+	//	WebElement rolesPermissionBtn;
+	//	
+	//	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
+	//	WebElement crewControlBtn;
+	//	
+	//	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
+	//	WebElement crewControlBtn;
+	//	
+	//	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
+	//	WebElement crewControlBtn;
+
 	public void clickOnCrewCntrl() {
 		crewControlBtn.click();
 	}
@@ -156,7 +250,6 @@ public class HomePage {
 		othersBtn.click();
 	}
 
-
 	public void clickOnFunnelTypeBtn() {
 		funnelTypeBtn.click();
 	}
@@ -172,47 +265,59 @@ public class HomePage {
 	public void clickOnDMSBtn() {
 		dmsBtn.click();
 	}
-//
-//	public void clickOnOthersBtn() {
-//		othersBtn.click();
-//	}
-//
-//
-//	public void clickOnOthersBtn() {
-//		othersBtn.click();
-//	}
-//
-//	public void clickOnOthersBtn() {
-//		othersBtn.click();
-//	}
-//
-//	public void clickOnOthersBtn() {
-//		othersBtn.click();
-//	}
+
+	public void clickOnS2SBtn() {
+		s2SBtn.click();
+	}
+
+	public void clickOnBusinessManagerBtn() {
+		businessManagerBtn.click();
+	}
+
+	public void clickOnLaunchesBtn() {
+		launchBtn.click();
+	}
+
+	public void clickOnTargetTemplatesBtn() {
+		targetTemplatesBtn.click();
+	}
 
 
+	public HomePage(WebDriver driver) {
+		PageFactory.initElements(driver, this);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
+	
+//	public void 
 	
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
 
 
