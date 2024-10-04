@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 
 
-	@FindBy(xpath="//input[@name='email']")
+	@FindBy(xpath="//div//input[contains(@name,'email') or contains(@name,'username')]")
 	WebElement usernameTxt;
 
 	@FindBy(xpath="//input[@name='password']")
