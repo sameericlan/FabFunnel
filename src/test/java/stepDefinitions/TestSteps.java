@@ -7,12 +7,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import objectRepo.LoginPage;
+import pageObjects.LoginPage;
+import utilities.JavaUtilities;
 import utilities.PropertyFileUtilities;
 import utilities.TryCatchFab;
 
@@ -22,9 +24,10 @@ public class TestSteps {
 	LoginPage lp;
 	PropertyFileUtilities prop;
 	TryCatchFab tcf=new TryCatchFab();
+	JavaUtilities jUtil;
 
 	@Before
-	public void setup() {
+	public void setup(Scenario scenario) {
 		System.out.println("This is before method");
 		String URL=null;
 		prop=new PropertyFileUtilities();
@@ -41,6 +44,7 @@ public class TestSteps {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get(URL);
+		System.out.println("Scenario started : " +scenario.getName());
 	}
 
 
@@ -128,6 +132,7 @@ public class TestSteps {
 	
 	@And("user clicks on the login button")
 	public void user_clicks_on_login_button() {
+//		Assert.fail();
 		
 		
 	}
@@ -142,12 +147,19 @@ public class TestSteps {
 	
 	
 	
-	
-	
-	
 
 	@After
-	public void exit() {
+	public void exit(Scenario scenario) {
+		if(scenario.isFailed()) {
+			System.out.println("Scenario Failed : "+ scenario.getName());
+			jUtil=new JavaUtilities();
+			jUtil.takeScreenshotAs(driver, scenario.getName());
+		}else {
+			System.out.println("Scenario Passed : "+ scenario.getName());
+			
+			
+		}
+		
 		System.out.println("this is after method");
 		driver.quit();
 	}

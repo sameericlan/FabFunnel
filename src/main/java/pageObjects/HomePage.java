@@ -1,4 +1,4 @@
-package objectRepo;
+package pageObjects;
 
 import java.util.List;
 
@@ -109,10 +109,10 @@ public class HomePage {
 	@FindBy(xpath="//span[contains(text(),'Integrations')]")
 	WebElement integrationsBtn;
 
-	@FindBy(xpath="//span[text()='Funnel Engine']")
+	@FindBy(xpath="//span[contains(text(),'Funnel Engine')]")
 	WebElement funnelEngineBtn;
 
-	@FindBy(xpath="//a[text()='FMS']")
+	@FindBy(xpath="//a[contains(text(),'FMS')]")
 	WebElement fmsBtn;
 
 	@FindBy(xpath="//span[contains(text(),'Tools')]")
@@ -151,22 +151,22 @@ public class HomePage {
 	@FindBy(xpath="//a[text()='Client Configuration']")
 	WebElement clientConfigBtn;
 
-	@FindBy(xpath="//a[text()='Assets']")
+	@FindBy(xpath="//a[contains(text(),'Assets')]")
 	WebElement asstesBtn;
 
-	@FindBy(xpath="//a[text()='DMS']")
+	@FindBy(xpath="//a[contains(text(),'DMS')]")
 	WebElement dmsBtn;
 
-	@FindBy(xpath="//a[text()='S2S']")
+	@FindBy(xpath="//a[contains(text(),'S2S')]")
 	WebElement s2SBtn;
 
 	@FindBy(xpath="//a[text()='Business Manager']")
 	WebElement businessManagerBtn;
 
-	@FindBy(xpath="//a[text()='Launches']")
+	@FindBy(xpath="//a[contains(text(),'Launches')]")
 	WebElement launchesBtn;
 
-	@FindBy(xpath="//a[text()='Targeting Templates']")
+	@FindBy(xpath="//a[contains(text(),'Targeting Templates')]")
 	WebElement targetTemplatesBtn;
 
 	//	@FindBy(xpath="//a[text()='Help & Support']")
