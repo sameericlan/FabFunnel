@@ -13,7 +13,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pageObjects.LoginPage;
+import pages.LoginPage;
 import utilities.JavaUtilities;
 import utilities.PropertyFileUtilities;
 import utilities.TryCatchFab;
@@ -52,7 +52,7 @@ public class TestSteps {
 	public void login_page_is_open() {
 		//	lp=new LoginPage(driver);
 
-		//	Assert.assertEquals(loginText, "Welcome to FabFunnel");
+//			Assert.assertEquals(loginText, "Welcome to FabFunnel");
 		//	System.out.println("LoginPage verification successful");
 		tcf.execute(this:: testCase1);
 		//		executor.execute(new Runnable() {
@@ -133,8 +133,6 @@ public class TestSteps {
 	@And("user clicks on the login button")
 	public void user_clicks_on_login_button() {
 //		Assert.fail();
-		
-		
 	}
 	
 	@Then("user shouldnt be logged in and an error messaage should be displayed")
@@ -144,10 +142,6 @@ public class TestSteps {
 		
 	}
 	
-	
-	
-	
-
 	@After
 	public void exit(Scenario scenario) {
 		if(scenario.isFailed()) {
