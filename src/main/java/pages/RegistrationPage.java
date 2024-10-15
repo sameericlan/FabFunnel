@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegistrationPage {
-	
+
 	WebDriver driver;
-	
-	@FindBy(className = "ant-input ant-input-lg css-1rb2j8y ant-input-outlined")
+
+	@FindBy(xpath = "//input[@name='fullName']")
 	WebElement fullNameTxt;
 
-	@FindBy(className = "form-control w-100")
+	@FindBy(xpath = "//input[@class='form-control w-100']")
 	WebElement phNoTxt;
 
 	@FindBy(name = "password")
@@ -25,15 +25,15 @@ public class RegistrationPage {
 	WebElement subBtn;
 
 	//optional field
-	@FindBy(className = "ant-input ant-input-lg css-1rb2j8y ant-input-outlined")
+	@FindBy(name = "agencyAbout")
 	WebElement aboutAgencyTxt;
 
-	@FindBy(className = "ant-btn css-1rb2j8y ant-btn-primary ant-btn-lg w-100")
+	@FindBy(xpath = "//button[@class='ant-btn css-q91sxy ant-btn-primary ant-btn-lg w-100']")
 	WebElement nextBtn;
 
 	//optional field
-	@FindBy(className = "ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix")
-	WebElement membersEmailTxt;
+	//	@FindBy(className = "ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix")
+	//	WebElement membersEmailTxt;
 
 	//dropdown for 'Agency Admin' or 'Media Buyer'-------optional field
 	@FindBy(xpath = "//span[text()='Select Role']")
@@ -42,7 +42,7 @@ public class RegistrationPage {
 	@FindBy(name="termAndCondition")
 	WebElement chkBox;
 
-	@FindBy(className = "ant-btn css-1rb2j8y ant-btn-primary ant-btn-lg w-100")
+	@FindBy(xpath = "//button[@class='ant-btn css-q91sxy ant-btn-primary ant-btn-lg w-100']")
 	WebElement subTermsBtn;
 
 	public RegistrationPage(WebDriver driver) {
@@ -52,9 +52,9 @@ public class RegistrationPage {
 
 	}
 
-	public void registerUser(String fullName,String phNo, String pwd) {
+	public void registerUser(String fullName, String l, String pwd) {
 		fullNameTxt.sendKeys(fullName);
-		phNoTxt.sendKeys(phNo);
+		phNoTxt.sendKeys(l);
 		pwdTxt.sendKeys(pwd);
 		confrmpwdTxt.sendKeys(pwd);
 		subBtn.click();

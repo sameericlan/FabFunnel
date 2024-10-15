@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import io.cucumber.java.Scenario;
 
@@ -32,6 +35,20 @@ public class JavaUtilities {
 		}
 	}
 
+	public void switchWindow(WebDriver driver, String window) {
+		Set<String> winID = driver.getWindowHandles();
+		for(String winIDs:winID) {
+			driver.switchTo().window(winIDs);
+			String title = driver.getTitle();
+			System.out.println(title);
+			if(title.equalsIgnoreCase(window)) {
+				System.out.println("Window successfully switched");
+				break;
+
+			}
+		}
+	}
+
 	public int getRandomNum() {
 		Random ran=new Random();
 		int randNum = ran.nextInt(1000);
@@ -44,6 +61,20 @@ public class JavaUtilities {
 		String currentDateTime=dateFormat.format(currentDate);
 		return currentDateTime;
 	}
+
+	public void scrollToEle(WebDriver driver, WebElement ele) {
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].scrollIntoView(true);", ele);
+	}
+
+	public String generateRandomPhNo() {
+		Random random = new Random(); 
+		long randomNumber = 1000000000L + (long)(random.nextDouble() * 9000000000L); 
+		String number=""+randomNumber;
+		System.out.println("Phone: " + randomNumber); 
+		return number;
+	} 
+
 
 
 }

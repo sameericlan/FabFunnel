@@ -5,7 +5,7 @@ public class TryCatchFab {
 
 	public void execute(Runnable steps) {
 		int attempt=0;
-		while(attempt<maxTries) {
+		while(attempt<=maxTries) {
 
 			try {
 				steps.run();
@@ -15,9 +15,10 @@ public class TryCatchFab {
 				attempt++;
 				System.out.println("Step failed : "+e.getMessage());
 				if(attempt<=maxTries) {
-					System.out.println("Max retries reached. Failing step.");
-				}else {
 					System.out.println("Retrying. (Attempt"+ attempt+")");
+				}else {
+					System.out.println("Max retries reached. Failing step.");
+
 				}			
 			}
 		}

@@ -18,7 +18,7 @@ import utilities.JavaUtilities;
 import utilities.PropertyFileUtilities;
 import utilities.TryCatchFab;
 
-public class TestSteps {
+public class LoginTestSteps {
 
 	WebDriver driver;
 	LoginPage lp;
@@ -26,36 +26,36 @@ public class TestSteps {
 	TryCatchFab tcf=new TryCatchFab();
 	JavaUtilities jUtil;
 
-	@Before
-	public void setup(Scenario scenario) {
-		System.out.println("This is before method");
-		String URL=null;
-		prop=new PropertyFileUtilities();
-		try {
-			URL=prop.readDataFromPropertFile( "URL");
-			System.out.println(URL);
-
-		} catch (Throwable e) {
-
-			e.printStackTrace();
-		}
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
-		driver.get(URL);
-		System.out.println("Scenario started : " +scenario.getName());
-	}
+//	@Before
+//	public void setup(Scenario scenario) {
+//		System.out.println("This is before method");
+//		String URL=null;
+//		prop=new PropertyFileUtilities();
+//		try {
+//			URL=prop.readDataFromPropertFile( "URL");
+//			System.out.println(URL);
+//
+//		} catch (Throwable e) {
+//
+//			e.printStackTrace();
+//		}
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//		driver.manage().window().maximize();
+//		driver.get(URL);
+//		System.out.println("Scenario started : " +scenario.getName());
+//	}
 
 
 	@Given("login page is open")
 	public void login_page_is_open() {
-		//	lp=new LoginPage(driver);
+//		lp=new LoginPage(driver);
 
-//			Assert.assertEquals(loginText, "Welcome to FabFunnel");
+//		Assert.assertEquals(loginText, "Welcome to FabFunnel");
 		//	System.out.println("LoginPage verification successful");
 		tcf.execute(this:: testCase1);
-		//		executor.execute(new Runnable() {
+//				executor.execute(new Runnable() {
 		//
 		//			@Override
 		//			public void run() {
@@ -75,7 +75,7 @@ public class TestSteps {
 		}
 		String PASSWORD=null;
 		try {
-			PASSWORD = prop.readDataFromPropertFile( "password");
+			PASSWORD = prop.readDataFromPropertFile( "apassword");
 			System.out.println(PASSWORD);
 
 		} catch (Throwable e) {
@@ -142,21 +142,21 @@ public class TestSteps {
 		
 	}
 	
-	@After
-	public void exit(Scenario scenario) {
-		if(scenario.isFailed()) {
-			System.out.println("Scenario Failed : "+ scenario.getName());
-			jUtil=new JavaUtilities();
-			jUtil.takeScreenshotAs(driver, scenario.getName());
-		}else {
-			System.out.println("Scenario Passed : "+ scenario.getName());
-			
-			
-		}
+//	@After
+//	public void exit(Scenario scenario) {
+//		if(scenario.isFailed()) {
+//			System.out.println("Scenario Failed : "+ scenario.getName());
+//			jUtil=new JavaUtilities();
+//			jUtil.takeScreenshotAs(driver, scenario.getName());
+//		}else {
+//			System.out.println("Scenario Passed : "+ scenario.getName());
+//			
+//			
+//		}
 		
-		System.out.println("this is after method");
-		driver.quit();
-	}
+//		System.out.println("this is after method");
+//		driver.quit();
+//	}
 	public void testCase1() {
 		lp=new LoginPage(driver);
 		String loginText = lp.verifyLoginPage().getText();

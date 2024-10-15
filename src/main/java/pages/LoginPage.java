@@ -26,6 +26,7 @@ public class LoginPage {
 
 	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		System.out.println("driver initialised");
 	}
 
 	public void loginToApp(String username, String password) {

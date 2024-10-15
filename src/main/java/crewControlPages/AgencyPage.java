@@ -51,40 +51,38 @@ public class AgencyPage {
 		this.driver=driver;
 	}
 
-	public void addNewAgency(WebDriver driver,String agencyName, String email) {
+	public void addNewAgency(String agencyName, String email) {
 		crewControlBtn.click();
 		agenciesBtn.click();
 		inviteNewAgencyBtn.click();
 
 		agencyNameTxt.sendKeys(agencyName);
-
+this.name=agencyName;
 		emailTxt.sendKeys(email);
 
 		submitBtn.click();
 
 		
-		
-		
-		
-		driver.findElement(By.xpath("//span[text()='"+name+"']/../..//span[text()='Invited']"));
+//		driver.findElement(By.xpath("//span[text()='"+name+"']/../..//span[text()='Invited']"));
 
 	}
-
+	
+	
 //	public String status() {
 //
 //		return statusOfUser.getText();
 //	}
 
 	public void logOutUser() {
+		WebElement status = driver.findElement(By.xpath("//span[text()='"+name+"']/../..//span[text()='Invited']"));
+System.out.println(status.getText());
+Assert.assertTrue(status.getText().equals("Invited"));
 		userImg.click();
 		logoutBtn.click();
 		if(loginPageText.getText().equals("Welcome to FabFunnel")) {
 			System.out.println("LogOut successful");
 
-
-
 		}
-
 
 	}
 
