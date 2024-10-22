@@ -4,10 +4,16 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestContext;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 
 import crewControlPages.AgencyPage;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
@@ -18,7 +24,7 @@ import utilities.TryCatchFab;
 import yopMail.YOPMailPage;
 
 public   class HooksClass {
-	private static WebDriver driver;
+	public WebDriver driver;
 	//	 private DriverFactory df;
 	LoginPage lp;
 	PropertyFileUtilities prop;
@@ -28,38 +34,31 @@ public   class HooksClass {
 	YOPMailPage ymp;
 	String name;
 	String email;
-
+	private ITestContext context;
 
 	@Before
 	public void setup(Scenario scenario) {
 		jUtil=new JavaUtilities();
-
+		//DriverFactory.init_driver();
 		System.out.println("This is before method");
-		String URL=null;
-		prop=new PropertyFileUtilities();
-		try {
-			URL=prop.readDataFromPropertFile( "URL");
-			System.out.println(URL);
 
-		} catch (Throwable e) {
-
-			e.printStackTrace();
-		}
-		//		df=new DriverFactory();
-		//		df.init_driver("chrome");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
-		driver.get(URL);
 		System.out.println("Scenario started : " +scenario.getName());
+
+
 	}
 
 	@After
 	public void exit(Scenario scenario) {
+		this.driver=DriverFactory.init_driver();
 		if(scenario.isFailed()) {
+
 			System.out.println("Scenario Failed : "+ scenario.getName());
 			jUtil=new JavaUtilities();
+
+
+			if(jUtil==null) {
+				System.out.println("jutil not instantiated");
+			}
 			jUtil.takeScreenshotAs(driver, scenario.getName());
 		}else {
 			System.out.println("Scenario Passed : "+ scenario.getName());
@@ -71,13 +70,8 @@ public   class HooksClass {
 		//		driver.quit();
 	}
 
-	/**
-	 * This method returns driver instance
-	 * @return
-	 */
-	public static WebDriver getDriver() {
-		return driver;
-	}
+
+
 
 
 }

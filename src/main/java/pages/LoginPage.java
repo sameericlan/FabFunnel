@@ -20,7 +20,7 @@ public class LoginPage {
 
 	@FindBy(xpath="//h3[text()='Welcome to FabFunnel']")
 	WebElement loginPageText;
-	
+
 	@FindBy(xpath="//span[text()='Dashboard']")
 	WebElement homeText;
 
@@ -30,6 +30,7 @@ public class LoginPage {
 	}
 
 	public void loginToApp(String username, String password) {
+		System.out.println("this is login to app function");
 		usernameTxt.sendKeys(username);
 		pwdTxt.sendKeys(password);
 		loginBtn.click();

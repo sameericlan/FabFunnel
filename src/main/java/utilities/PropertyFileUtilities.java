@@ -6,7 +6,14 @@ import java.util.Properties;
 
 public class PropertyFileUtilities {
 
-	
+	/**
+	 * 
+	 * 
+	 * This methhod helps in reading data from the property file
+	 * @param propType
+	 * @return
+	 * @throws Throwable
+	 */
 	public String readDataFromPropertFile( String propType) throws Throwable {
 		Properties prop=new Properties();
 		FileInputStream fis=new FileInputStream("src/test/resource/config/config.properties");

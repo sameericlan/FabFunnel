@@ -1,19 +1,16 @@
 package crewControlPages;
 
-import java.sql.Driver;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AgencyPage {
 	WebDriver driver;
-	String name;
-	
+	public  String name;
+
 	@FindBy(xpath="//span[contains(text(),'Crew Control')]")
 	WebElement crewControlBtn;
 
@@ -31,10 +28,9 @@ public class AgencyPage {
 
 	@FindBy(xpath="//button[@type='submit']")
 	WebElement submitBtn;
-	
 
-//	@FindBy(xpath="//span[text()='"+name+"']/../..//span[text()='Invited']")
-//	WebElement statusOfUser;
+	//	@FindBy(xpath="//span[text()='"+name+"']/../..//span[text()='Invited']")
+	//	WebElement statusOfUser;
 
 	@FindBy(xpath="//img[@alt='Profile']")
 	WebElement userImg;
@@ -57,26 +53,26 @@ public class AgencyPage {
 		inviteNewAgencyBtn.click();
 
 		agencyNameTxt.sendKeys(agencyName);
-this.name=agencyName;
+		this.name=agencyName;
 		emailTxt.sendKeys(email);
 
 		submitBtn.click();
 
-		
-//		driver.findElement(By.xpath("//span[text()='"+name+"']/../..//span[text()='Invited']"));
+
+		//		driver.findElement(By.xpath("//span[text()='"+name+"']/../..//span[text()='Invited']"));
 
 	}
-	
-	
-//	public String status() {
-//
-//		return statusOfUser.getText();
-//	}
+
+
+	//	public String status() {
+	//
+	//		return statusOfUser.getText();
+	//	}
 
 	public void logOutUser() {
 		WebElement status = driver.findElement(By.xpath("//span[text()='"+name+"']/../..//span[text()='Invited']"));
-System.out.println(status.getText());
-Assert.assertTrue(status.getText().equals("Invited"));
+		System.out.println(status.getText());
+		Assert.assertTrue(status.getText().equals("Invited"));
 		userImg.click();
 		logoutBtn.click();
 		if(loginPageText.getText().equals("Welcome to FabFunnel")) {

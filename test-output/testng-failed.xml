@@ -6,8 +6,10 @@
       <class name="runner.EndToEndRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0"/>
+          <include name="runScenario" invocation-numbers="1 2"/>
           <include name="tearDownClass"/>
+          <include name="befAll"/>
+          <include name="teardownBrowser"/>
         </methods>
       </class> <!-- runner.EndToEndRunner -->
     </classes>

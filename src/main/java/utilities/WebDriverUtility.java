@@ -14,15 +14,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebDriverUtility {
 
+	/**
+	 * 
+	 * This method quits the current session
+	 * @param driver
+	 */
 	public void quitDriver(WebDriver driver) {
 		if(driver!=null) {
 			driver.quit();}
 	}
 
+	/**
+	 * 
+	 * This method helps in maximizing the webpage
+	 * @param driver
+	 */
 	public void windowMaximize(WebDriver driver) {
 		driver.manage().window().maximize();
 	}
 
+	
+	/**
+	 * 
+	 * This method wait uses elements
+	 * @param driver
+	 * @param ele
+	 */
 	public void waitForElementToBeClickable(WebDriver driver, WebElement ele) {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(ele));	}
@@ -31,6 +48,14 @@ public class WebDriverUtility {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
+	
+	/**
+	 * 
+	 * 
+	 * This a fluent wait method used till 10 seconds
+	 * @param driver
+	 * @param ele
+	 */
 	public void fluentWait(WebDriver driver,WebElement ele) {
 		FluentWait wait=new FluentWait(driver);
 		wait.withTimeout(Duration.ofSeconds(10));
@@ -38,10 +63,24 @@ public class WebDriverUtility {
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 	}
 
+	
+	/**
+	 * 
+	 * This method helps in getting the URL
+	 * @param driver
+	 * @param URL
+	 */
 	public void getUrl(WebDriver driver, String URL) {
 		driver.get(URL);
 	}
 
+	
+	/**
+	 * 
+	 * 
+	 * @param driver
+	 * @param actTitle
+	 */
 	public void windowSwitch(WebDriver driver, String actTitle) {
 		Set<String> winID=driver.getWindowHandles();
 		for(String winIDS : winID) {
@@ -53,23 +92,37 @@ public class WebDriverUtility {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * This method helps in switching between windows
+	 * 
+	 * @param driver
+	 * @param window
+	 */
 	public String getCurrentURl(WebDriver driver) {
 		return driver.getCurrentUrl();
 	}
 
+	
+	/**
+	 * 
+	 * This method helps in getting the page source
+	 * @param driver
+	 */
 	public void getPageSource(WebDriver driver) {
 		driver.getPageSource();
 	}
 
-	public void getWindowHandlesSingle(WebDriver driver, String actualTitle) {
-		String abc=driver.getWindowHandle();
-		driver.switchTo().window(abc);
-		String expectedTitle =driver.getTitle();
-		if(expectedTitle.equalsIgnoreCase(actualTitle)) 
-		{
-			
-		}
-	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param driver
+	 * @param actualTitle
+	 */
+	
 
 
 }

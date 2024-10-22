@@ -20,7 +20,6 @@ public class YOPMailPage {
 	//add frame switching here
 	@FindBy(xpath = "(//span[text()='no-reply@lookfinity.com'])[1]")
 	WebElement mailBtn;
-
 	//add frame switching here
 	@FindBy(xpath = "//a[contains(text(),'Start your journey')]")
 	WebElement verifyBtn;

@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Set;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -18,8 +17,14 @@ import io.cucumber.java.Scenario;
 
 public class JavaUtilities {
 
-
+	/**
+	 * 
+	 * this method takes screenshot 
+	 * @param driver
+	 * @param fileName
+	 */
 	public void takeScreenshotAs(WebDriver driver,String fileName) {
+		System.out.println("enters ss block");
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File source=ts.getScreenshotAs(OutputType.FILE);
 		String timeStamp=new SimpleDateFormat("ddMMyyyyHHmmss").format(new Date());
@@ -35,6 +40,14 @@ public class JavaUtilities {
 		}
 	}
 
+
+	/**
+	 * 
+	 * This method helps in switching between windows
+	 * 
+	 * @param driver
+	 * @param window
+	 */
 	public void switchWindow(WebDriver driver, String window) {
 		Set<String> winID = driver.getWindowHandles();
 		for(String winIDs:winID) {
@@ -49,12 +62,25 @@ public class JavaUtilities {
 		}
 	}
 
+
+	/**
+	 * 
+	 * This method helps in generating a random number upto 1000
+	 * @return
+	 */
 	public int getRandomNum() {
 		Random ran=new Random();
 		int randNum = ran.nextInt(1000);
 		return randNum;
 	}
 
+	/**
+	 * 
+	 * 
+	 * 
+	 * This method helps in getting current date
+	 * @return
+	 */
 	public String getCurrentDate() {
 		Date currentDate=new Date();
 		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -62,6 +88,15 @@ public class JavaUtilities {
 		return currentDateTime;
 	}
 
+
+
+	/** 
+	 * 
+	 * 
+	 * This method helps in scrolling through the webpage
+	 * @param driver
+	 * @param ele
+	 */
 	public void scrollToEle(WebDriver driver, WebElement ele) {
 		JavascriptExecutor jse=(JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].scrollIntoView(true);", ele);
@@ -74,7 +109,6 @@ public class JavaUtilities {
 		System.out.println("Phone: " + randomNumber); 
 		return number;
 	} 
-
 
 
 }
