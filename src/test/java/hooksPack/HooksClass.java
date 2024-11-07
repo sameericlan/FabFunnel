@@ -1,14 +1,12 @@
 package hooksPack;
 
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-
 import crewControlPages.AgencyPage;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
@@ -18,6 +16,7 @@ import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.LoginPage;
 import utilities.DriverFactory;
+import utilities.ExtentManager;
 import utilities.JavaUtilities;
 import utilities.PropertyFileUtilities;
 import utilities.TryCatchFab;
@@ -43,6 +42,7 @@ public   class HooksClass {
 		System.out.println("This is before method");
 
 		System.out.println("Scenario started : " +scenario.getName());
+		 ExtentManager.createTest(scenario.getName());
 
 
 	}
@@ -51,18 +51,20 @@ public   class HooksClass {
 	public void exit(Scenario scenario) {
 		this.driver=DriverFactory.init_driver();
 		if(scenario.isFailed()) {
+            ExtentManager.getTest().fail("Scenario failed : "+ scenario.getName());
 
 			System.out.println("Scenario Failed : "+ scenario.getName());
 			jUtil=new JavaUtilities();
 
-
 			if(jUtil==null) {
 				System.out.println("jutil not instantiated");
 			}
-			jUtil.takeScreenshotAs(driver, scenario.getName());
+			String dest = jUtil.takeScreenshotAs(driver, scenario.getName());
+			ExtentManager.getTest().addScreenCaptureFromPath(dest);
+
 		}else {
 			System.out.println("Scenario Passed : "+ scenario.getName());
-
+			ExtentManager.getTest().pass("Scenario Passed : "+ scenario.getName());
 
 		}
 

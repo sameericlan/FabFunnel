@@ -22,13 +22,7 @@ public class DriverFactory {
 			driver.manage().window().maximize();
 		}
 		return driver;
-
-
-
-
-
-
-
+		
 
 
 	}

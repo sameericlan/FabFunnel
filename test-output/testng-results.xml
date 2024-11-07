@@ -2,30 +2,30 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-22T11:19:25 IST" name="Default suite" finished-at="2024-10-22T11:22:35 IST" duration-ms="190202">
+  <suite started-at="2024-11-07T10:53:32 IST" name="Default suite" finished-at="2024-11-07T10:57:28 IST" duration-ms="236769">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-10-22T11:19:25 IST" name="Default test" finished-at="2024-10-22T11:22:35 IST" duration-ms="190202">
+    <test started-at="2024-11-07T10:53:32 IST" name="Default test" finished-at="2024-11-07T10:57:28 IST" duration-ms="236769">
       <class name="runner.EndToEndRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:19:25 IST" name="setUpClass" finished-at="2024-10-22T11:19:26 IST" duration-ms="760" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:53:32 IST" name="setUpClass" finished-at="2024-11-07T10:53:32 IST" duration-ms="730" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@798256c5]]>
+                <![CDATA[org.testng.TestRunner@4a2bf50f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="befAll()[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:19:26 IST" name="befAll" finished-at="2024-10-22T11:19:26 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="befAll()[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:53:32 IST" name="befAll" finished-at="2024-11-07T10:53:32 IST" duration-ms="181" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- befAll -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:19:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-10-22T11:20:41 IST" duration-ms="74816" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:53:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-11-07T10:54:11 IST" duration-ms="38641" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -41,7 +41,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:20:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-10-22T11:21:23 IST" duration-ms="42414" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:54:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-11-07T10:55:26 IST" duration-ms="74606" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -57,7 +57,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:21:23 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-10-22T11:22:35 IST" duration-ms="71792" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:55:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-11-07T10:57:28 IST" duration-ms="121843" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -73,11 +73,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="teardownBrowser()[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:22:35 IST" name="teardownBrowser" finished-at="2024-10-22T11:22:35 IST" duration-ms="253" status="PASS">
+        <test-method is-config="true" signature="teardownBrowser()[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:57:28 IST" name="teardownBrowser" finished-at="2024-11-07T10:57:28 IST" duration-ms="604" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardownBrowser -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-10-22T11:22:35 IST" name="tearDownClass" finished-at="2024-10-22T11:22:35 IST" duration-ms="103" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.EndToEndRunner@5542c4ed]" started-at="2024-11-07T10:57:28 IST" name="tearDownClass" finished-at="2024-11-07T10:57:28 IST" duration-ms="95" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

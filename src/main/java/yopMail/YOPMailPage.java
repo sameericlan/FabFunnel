@@ -12,14 +12,21 @@ public class YOPMailPage {
 	JavaUtilities jUtil;
 	WebDriver driver;
 	@FindBy(id="login")
+	
 	WebElement userEmailTxt;
 
 	@FindBy(id ="refreshbut")
 	WebElement submitBtn;
 	
 	//add frame switching here
-	@FindBy(xpath = "(//span[text()='no-reply@lookfinity.com'])[1]")
+//	@FindBy(xpath = "(//span[text()='no-reply@lookfinity.com'])[1]")
+//	WebElement mailBtn;
+	
+	@FindBy(xpath = "(//button//div[starts-with(text(),'Exclusive')])[1]")
 	WebElement mailBtn;
+	
+	
+	
 	//add frame switching here
 	@FindBy(xpath = "//a[contains(text(),'Start your journey')]")
 	WebElement verifyBtn;

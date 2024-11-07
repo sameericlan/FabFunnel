@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import utilities.DriverFactory;
+import utilities.ExtentManager;
+import utilities.JavaUtilities;
 
 @CucumberOptions(
 		features="src/main/resource/features/endToEnd.feature",
@@ -22,8 +24,14 @@ public class EndToEndRunner  extends AbstractTestNGCucumberTests{
 
 	@BeforeClass
 	public void befAll() {
+		JavaUtilities jUtil=new JavaUtilities();
+
+		ExtentManager.createInstance("./target/ExtentSparkReport"+jUtil.getCurrentDate()+".html");
+
 		System.out.println("This is before class method");	
 	}
+	
+	
 
 
 	@AfterClass
@@ -31,6 +39,7 @@ public class EndToEndRunner  extends AbstractTestNGCucumberTests{
 		System.out.println("This is after class method");	
 
 		DriverFactory.init_driver().quit();
+		 ExtentManager.flush();
 
 
 	}

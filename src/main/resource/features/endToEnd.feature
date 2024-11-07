@@ -18,3 +18,6 @@ Scenario: Invited Agency  Sign-up. 
 Given Login to YOPmail
 When Token catch from to-mail 
 Then Signup agency
+And Check the status of agency owner
+
+ 

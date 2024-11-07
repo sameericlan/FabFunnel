@@ -23,7 +23,7 @@ public class JavaUtilities {
 	 * @param driver
 	 * @param fileName
 	 */
-	public void takeScreenshotAs(WebDriver driver,String fileName) {
+	public String takeScreenshotAs(WebDriver driver,String fileName) {
 		System.out.println("enters ss block");
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File source=ts.getScreenshotAs(OutputType.FILE);
@@ -38,6 +38,7 @@ public class JavaUtilities {
 			e.printStackTrace();
 
 		}
+		return destination;
 	}
 
 

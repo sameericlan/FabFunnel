@@ -21,14 +21,14 @@ public class RegistrationPage {
 	@FindBy(name="confirmPassword")
 	WebElement confrmpwdTxt;
 
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "//button[@type='submit']") 
 	WebElement subBtn;
 
 	//optional field
 	@FindBy(name = "agencyAbout")
 	WebElement aboutAgencyTxt;
 
-	@FindBy(xpath = "//button[@class='ant-btn css-q91sxy ant-btn-primary ant-btn-lg w-100']")
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElement nextBtn;
 
 	//optional field
@@ -42,7 +42,7 @@ public class RegistrationPage {
 	@FindBy(name="termAndCondition")
 	WebElement chkBox;
 
-	@FindBy(xpath = "//button[@class='ant-btn css-q91sxy ant-btn-primary ant-btn-lg w-100']")
+	@FindBy(xpath = "//span[text()='Signup']")
 	WebElement subTermsBtn;
 
 	public RegistrationPage(WebDriver driver) {

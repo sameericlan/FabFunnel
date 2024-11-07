@@ -89,7 +89,7 @@ public class EndToEndSteps  {
 	//
 	//	}
 	//
-	//
+	//This is going from try catch class block
 	public void tc1()  {
 		//		String loginText = lp.verifyLoginPage().getText();
 		//		System.out.println("3rd step");
@@ -186,7 +186,7 @@ public class EndToEndSteps  {
 
 
 		String loginText = lp.verifyLoginPage().getText();
-//		System.out.println("3rd step");
+		//		System.out.println("3rd step");
 
 		Assert.assertEquals(loginText, "Welcome to FabFunnel");
 		System.out.println("=========LoginPage verification successful=========");
@@ -207,7 +207,7 @@ public class EndToEndSteps  {
 	}
 
 	@Then("user invites new agency")
-	public void user_invites_new_agency() {
+	public void user_invites_new_agency() throws Throwable {
 		//		jUtil=new JavaUtilities();
 
 		name="random"+jUtil.getRandomNum();
@@ -219,20 +219,29 @@ public class EndToEndSteps  {
 
 		System.out.println(email);
 
-		//		name="random765";
-		//		email=name+"@yopmail.com";
+		//				name="random765";
+		//				email=name+"@yopmail.com";
 
 
 
-		//		email=name+"@yopmail.com";
-
+		//				email=name+"@yopmail.com";
+		ap.OpenAgencyPage();
 		ap.addNewAgency( name, email);
+		//		try {
+		//			ap.addNewAgency( "random626", "random626@yopmail.com");
+		//		} catch (Throwable e) {
+		//			// TODO Auto-generated catch block
+		//			e.printStackTrace();
+		//		}
 
 
 
 
 
 		System.out.println(name+"- User Registration successful!!");
+		String status=ap.getAgencyOwnerStatus("Invited");
+		Assert.assertTrue(status.equals("Invited"));
+
 		ap.logOutUser();
 		System.out.println("============User logged out============");
 
@@ -259,7 +268,7 @@ public class EndToEndSteps  {
 
 		rp.registerUser("random", jUtil.generateRandomPhNo(), "Test@123");
 
-
+		//Assert.fail();
 	}
 
 	@Then("Signup agency")
@@ -267,7 +276,7 @@ public class EndToEndSteps  {
 
 		lp.loginToApp(DynamicVariableStore.getInstance().getEmail(), "Test@123");
 		String homepageText = lp.verifyHomePage();
-//		System.out.println("3rd step");
+		//		System.out.println("3rd step");
 
 		Assert.assertEquals(homepageText, "Dashboard");
 		System.out.println("=========HomePage verification successful=========");
@@ -275,6 +284,40 @@ public class EndToEndSteps  {
 
 	}
 
+
+	@And("Check the status of agency owner")
+	public void Check_the_status_of_agency_owner() {
+
+		ap.logOutUser();
+
+		String USERNAME=null;
+
+		try {
+			USERNAME = prop.readDataFromPropertFile( "username");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println(USERNAME);
+
+
+		String PASSWORD=null;
+
+		try {
+			PASSWORD = prop.readDataFromPropertFile( "password");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println(PASSWORD);
+
+		//
+		//
+		lp.loginToApp(USERNAME, PASSWORD);
+		ap.OpenAgencyPage();
+		String status=ap.getAgencyOwnerStatus("Active");
+		Assert.assertEquals(status, "Active");
+
+
+	}
 
 
 
